@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>register doctor</title>
+</head>
+<body>
+    <center><h1>Doctor, Please enter your details</h1></center>
+    <center>
+        <form action="doctor_registration.php" method="POST">
+            <input type="text" placeholder="SSN" id="doctor_ssn" name="doctor_ssn" style="padding: 5px; margin: 10px" required>
+            <br>
+            <input type="integer" placeholder="EXPERIENCE" id="doctor_exp" name="doctor_exp" style="padding: 5px; margin: 10px" required>
+            <br>
+            <p>specialty</p>
+            <select id="specialty" name="specialty" required>
+                <option value="" disabled selected>Select specialty</option>
+                <option value="Derma">Derma</option>
+                <option value="Cardio">Cardio</option>
+                <option value="Neuro">Neuro</option>
+                <option value="Dental">Dental</option>
+            </select>
+            <br>
+            <button type="submit" style="padding: 5px; margin-top: 10px">Register</button>
+        </form>
+    </center>
+</body>
+</html>
