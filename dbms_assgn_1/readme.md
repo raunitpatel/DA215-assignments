@@ -57,12 +57,17 @@ CREATE TABLE Drug (
 ```
 ## Prescribes
 ```mysql
-CREATE TABLE Drug (
-    Trade_name VARCHAR(100) NOT NULL,
-    formula VARCHAR(100),
-    Company_name VARCHAR(100) NOT NULL,
-    PRIMARY KEY (Trade_name, Company_name),
-    FOREIGN KEY (Company_name) REFERENCES Pharmaceutical_Company(name)
+CREATE TABLE Prescribes (
+    doctor_ssn VARCHAR(100) NOT NULL,
+    patient_ssn VARCHAR(100) NOT NULL,
+    drug_Trade_name VARCHAR(100) NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    date DATE,
+    qty INT,
+    PRIMARY KEY (doctor_ssn, patient_ssn,drug_trade_name,name),
+    FOREIGN KEY (doctor_ssn) REFERENCES Doctor(ssn),
+    FOREIGN KEY (patient_ssn) REFERENCES Patient(ssn),
+    FOREIGN KEY (drug_Trade_name,name) REFERENCES Drug(Trade_name,Company_name)
 );
 ```
 ## sells
