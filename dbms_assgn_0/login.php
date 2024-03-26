@@ -13,31 +13,31 @@
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             if ($password_data==$row['password_data']) {
-                $_SESSION['id'] = $row['username'];
+                $_SESSION['id'] = $row['id'];
                 $_SESSION['role'] = $row['role'];
                 $_SESSION['name'] = $row['name'];
                 switch ($row['role']) {
-                    case 'Student':
-                        header('Location: student.php');
+                    case 'Patient':
+                        header('Location: patient.php');
                         break;
-                    case 'Admin':
-                        header('Location: admin.php');
+                    case 'Doctor':
+                        header('Location: doctor.php');
+                        break;
+                    case 'Pharmacist':
+                        header('Location: pharmacist.php');
+                        break;
+                    case 'Company':
+                        header('Location: company.php');
                         break;
                     default:
                         header('Location: error.html' );
                         break;
                 }
             } else {
-                echo  "<script>
-                alert('Invalid password!');
-                window.location.href = 'landing.html';
-              </script>";
+                echo "Invalid password";
             }
         } else {
-            echo  "<script>
-                alert('Invalid username!');
-                window.location.href = 'landing.html';
-              </script>";
+            echo "Invalid username";
         }
     
         $sql->close();
